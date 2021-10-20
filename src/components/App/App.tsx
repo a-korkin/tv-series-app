@@ -8,9 +8,9 @@ const App: FC = () => {
     const { loading, error, data } = useTypedSelector(state => state);
     const { fetchSeries } = useActions();
 
-    // useEffect(() => {
-    //     fetchSeries();
-    // }, []);
+    useEffect(() => {
+        fetchSeries();
+    }, []);
 
     // console.log(data);
 
@@ -19,7 +19,7 @@ const App: FC = () => {
             {error && <h2>{error}</h2>}
             {loading && <h2>Loading...</h2>}
             {!error && !loading &&
-                <CardList />
+                <CardList list={data} />
             }
         </div>
     );

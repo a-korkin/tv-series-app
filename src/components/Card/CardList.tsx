@@ -1,15 +1,17 @@
 import React from "react";
 import { Card } from ".";
+import { Show } from "../../models";
 import "./Card.scss";
 
-const CardList: React.FC = () => {
-    const array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+interface CardListProps {
+    list: Show[];
+}
 
-
+const CardList: React.FC<CardListProps> = ({ list }) => {
     return (
         <div className="cards">
             {
-                array.map(card => <Card key={card} />)
+                list.map(item => <Card key={item.id} show={item} />)
             }
         </div>
     )

@@ -1,6 +1,6 @@
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
     grid-gap: 1rem;
 
     &__item {
@@ -9,8 +9,49 @@
         border: .1rem solid #aaa69d;
         box-shadow: 0 1rem 1rem rgba(#000, .5);
         border-radius: .7rem;
-        padding: 1rem;
         color: rgb(36, 35, 35);
+        transition: all .2s;
+
+        &:hover {
+            transform: translateY(-.5rem);
+        }
+
         display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(6, 1fr);
+
+        &-poster {
+            grid-row: 1 / span 3;
+            grid-column: 1 / -1;
+            overflow: hidden;
+            height: 27rem;
+            
+            img {
+                border-top-left-radius: .7rem;
+                border-top-right-radius: .7rem;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        &-title {
+            grid-column: 1 / -1;
+            grid-row: 4 / span 1;
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 2rem;
+        }
+
+        &-info {
+            grid-column: 1 / -1;
+            grid-row: 5 / -1;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(2, 1fr);
+
+            .info__cell {
+            }
+        }
     }
 }
