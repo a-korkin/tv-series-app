@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
+import ReactHtmlParser from "react-html-parser";
 import Loading from "../Loading";
 import Error from "../Error";
 import "./Card.scss";
@@ -31,7 +32,7 @@ const CardItem: React.FC = () => {
                         <img src={data?.image?.original} alt={data?.name} />
                     </div>
                     <div className="card__item-summary">
-                        {data?.summary}
+                        {ReactHtmlParser(data?.summary)}
                     </div>
                 </div>
             </div>
