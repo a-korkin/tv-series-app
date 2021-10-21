@@ -3,6 +3,11 @@
     grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
     grid-gap: 1rem;
 
+    a:link,
+    a:visited {
+        text-decoration: none;
+    }
+
     &__item {
         cursor: pointer;
         background-color: #f7f1e3;
@@ -54,4 +59,29 @@
             }
         }
     }
+}
+
+.card {
+    background-color: #f7f1e3;
+    color: #083042;
+    padding: 2rem;  
+    border-radius: .7rem;
+    box-shadow: 0 1rem 1rem rgba(#000, .5);
+
+    &__title {
+        font-size: 5rem;
+    }
+
+    &__item {
+        display: grid;
+        grid-template-columns: 25% 1fr;
+        grid-gap: 2rem;
+
+        &-poster {
+            
+            img {
+                width: 100%;
+            }
+        }
+    }    
 }

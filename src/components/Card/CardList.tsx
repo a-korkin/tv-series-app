@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { Card } from ".";
 import { useActions } from "../../hooks/useActions";
 import { useTypedSelector } from "../../hooks/useTypedSelector";
-import { Show } from "../../models";
+import Error from "../Error";
+import Loading from "../Loading";
 import "./Card.scss";
 
 const CardList: React.FC = () => {
@@ -15,10 +16,10 @@ const CardList: React.FC = () => {
 
     return (
         <div className="cards">
-            {error && <h2>{error}</h2>}
-            {loading && <h2>Loading...</h2>}
+            {error && <Error message={error} />}
+            {loading && <Loading />}
             {!error && !loading &&
-                list.map(item => <Card key={item.id} show={item} />)
+                data.map(item => <Card key={item.id} show={item} />)
             }
         </div>
     )
