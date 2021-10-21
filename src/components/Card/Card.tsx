@@ -8,24 +8,23 @@ interface CardProps {
 
 const Card: React.FC<CardProps> = ({ show }) => {
     const link = `shows/${show.id}`;
+    const imdbLink = `https://www.imdb.com/title/${show?.externals?.imdb}/`;
 
     return (
-        <Link to={link}>
         <div className="cards__item">
-            <div className="cards__item-poster">
-                <img src={show?.image?.original} alt={show?.name} />
-            </div>
+            <Link className="cards__item-poster" to={link}>
+                    <img src={show?.image?.original} alt={show?.name} />
+            </Link>
             <div className="cards__item-title">{show?.name}</div>
             <div className="cards__item-info">
-                <div className="info__cell">info1</div>
-                <div className="info__cell">info2</div>
-                <div className="info__cell">info3</div>
-                <div className="info__cell">info4</div>
-                <div className="info__cell">info5</div>
-                <div className="info__cell">info6</div>
+                <div className="info__cell">rating:<br />{show?.rating?.average}</div>
+                <div className="info__cell">premiered:<br />{show?.premiered}</div>
+                <div className="info__cell">ended:<br />{show?.ended}</div>
+                <div className="info__cell"><a target="_blank" href={imdbLink}>imdb</a></div>
+                <div className="info__cell"><a target="_blank" href={show?.officialSite}>official site</a></div>
+                <div className="info__cell">status:<br />{show?.status}</div>
             </div>
         </div>
-        </Link>
     );
 }
 

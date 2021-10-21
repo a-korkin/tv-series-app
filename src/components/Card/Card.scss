@@ -11,14 +11,15 @@
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
     grid-gap: 2rem;
-
+    
+    
     a:link,
     a:visited {
         text-decoration: none;
     }
-
+    
     &__item {
         cursor: pointer;
         background-color: #f7f1e3;
@@ -26,21 +27,29 @@
         box-shadow: 0 1rem 1rem rgba(#000, .5);
         border-radius: .7rem;
         color: rgb(36, 35, 35);
-        transition: all .2s;
+        // transition: all .2s;
 
-        &:hover {
-            transform: translateY(-.5rem);
-        }
+        // &:hover {
+        //     transform: translateY(-.5rem);
+        // }
 
         display: grid;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(6, 1fr);
+        position: relative;
+        overflow: hidden;
 
         &-poster {
             grid-row: 1 / span 3;
             grid-column: 1 / -1;
             overflow: hidden;
             height: 27rem;
+            display: block;
+            // transition: all .2s;
+            
+            &:hover {
+                // transform: translateY(-1rem);
+            }
             
             img {
                 border-top-left-radius: .7rem;
@@ -48,6 +57,19 @@
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                object-position: top;
+                transition: all .2s;
+            }
+            
+            img:hover {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                // height: 50vh;
+                border-top-left-radius: .7rem;
+                border-top-right-radius: .7rem;
+                height: 100%;
+                transform: translate(-50%, 0);
             }
         }
 
@@ -55,8 +77,9 @@
             grid-column: 1 / -1;
             grid-row: 4 / span 1;
             text-align: center;
+            align-self: center;
             text-transform: uppercase;
-            font-size: 2rem;
+            font-size: 2.5rem;
         }
 
         &-info {
@@ -67,6 +90,19 @@
             grid-template-rows: repeat(2, 1fr);
 
             .info__cell {
+                width: 100%;
+                text-align: center;
+                justify-self: center;
+                align-self: top;
+                border-top: .1rem solid grey;
+                &:not(:nth-child(3n)) {
+                    border-right: .1rem solid grey;
+                }
+
+                a:link,
+                a:visited {
+                    color: inherit;
+                }
             }
         }
     }

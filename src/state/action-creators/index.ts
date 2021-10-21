@@ -11,14 +11,14 @@ export const fetchSeries = (term: string = "") => {
         });
 
         try {
-            let url: string = "shows";
             let _data: Show[] = [];
 
             if (term !== "") {
-                url = `search/shows?q=${term}`;
+                const url = `search/shows?q=${term}`;
                 const { data } = await $api.get<SearchResponse[]>(url);
                 _data = data.map(arr => arr.show);
             } else {
+                const url = "shows";
                 const { data } = await $api.get<Show[]>(url);
                 _data = data;
             }
