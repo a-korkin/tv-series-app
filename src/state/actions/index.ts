@@ -15,4 +15,24 @@ interface FetchSeriesErrorAction {
     payload: string;
 }
 
-export type Action = FetchSeriesAction | FetchSeriesSuccessAction | FetchSeriesErrorAction;
+interface FetchShowAction {
+    type: ActionType.FETCH_SHOW;
+}
+
+interface FetchShowSuccessAction {
+    type: ActionType.FETCH_SHOW_SUCCESS;
+    payload: Show;
+}
+
+interface FetchShowErrorAction {
+    type: ActionType.FETCH_SHOW_ERROR;
+    payload: string;
+}
+
+export type Action = 
+    FetchSeriesAction | 
+    FetchSeriesSuccessAction | 
+    FetchSeriesErrorAction |
+    FetchShowAction |
+    FetchShowSuccessAction |
+    FetchShowErrorAction;

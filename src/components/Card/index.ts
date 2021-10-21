@@ -1,3 +1,4 @@
 import CardList from "./CardList";
 import Card from "./Card";
-export { Card, CardList };
+import CardItem from "./CardItem";
+export { Card, CardList, CardItem };
