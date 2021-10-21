@@ -1,3 +1,14 @@
+.search {
+    padding: 1rem;
+    font-family: inherit;
+    font-size: 2rem;
+    margin-bottom: 3rem;
+    display: block;
+    width: 100%;
+    outline: none;
+    border-radius: .7rem;
+}
+
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
@@ -90,5 +101,6 @@
         text-decoration: none;
         display: flex;
         align-items: center;
+        color: #083042;
     }
 }
