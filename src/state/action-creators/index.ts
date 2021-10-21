@@ -1,4 +1,4 @@
-import axios from "axios";
+import $api from "../../http";
 import { Dispatch } from "redux";
 import { Show } from "../../models";
 import { ActionType } from "../action-types";
@@ -11,7 +11,7 @@ export const fetchSeries = () => {
         });
 
         try {
-            const { data } = await axios.get<Show[]>("https://api.tvmaze.com/shows");
+            const { data } = await $api.get<Show[]>("shows");
             dispatch({
                 type: ActionType.FETCH_SERIES_SUCCESS,
                 payload: data
@@ -31,7 +31,7 @@ export const fetchShow = (id: number) => async (dispatch: Dispatch<Action>) => {
     });
 
     try {
-        const { data } = await axios.get<Show>(`https://api.tvmaze.com/shows/${id}`);
+        const { data } = await $api.get<Show>(`shows/${id}`);
         dispatch({
             type: ActionType.FETCH_SHOW_SUCCESS,
             payload: data

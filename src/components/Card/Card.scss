@@ -1,7 +1,7 @@
 .cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(21rem, 1fr));
-    grid-gap: 1rem;
+    grid-gap: 2rem;
 
     a:link,
     a:visited {
@@ -84,4 +84,11 @@
             }
         }
     }    
+
+    .link:link,
+    .link:visited {
+        text-decoration: none;
+        display: flex;
+        align-items: center;
+    }
 }
