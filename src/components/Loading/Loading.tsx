@@ -1,6 +1,9 @@
+import "./Loading.scss";
+
 const Loading: React.FC = () => {
     return (
-        <h2>Loading...</h2>
+        <div className="loading">
+        </div>
     );
 }
 
