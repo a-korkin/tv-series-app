@@ -15,12 +15,12 @@ interface ParamTypes {
 
 const CardItem: React.FC = () => {
     const { id } = useParams<ParamTypes>();
-    const { data, error, loading } = useTypedSelector(state => state.show);
-    const { fetchShow } = useActions();
-
     useEffect(() => {
         fetchShow(parseInt(id));
     }, []);
+    const { data, error, loading } = useTypedSelector(state => state.show);
+    const { fetchShow } = useActions();
+    const imdbLink = `https://www.imdb.com/title/${data?.externals?.imdb}/`;
 
     return (
         <>
@@ -35,7 +35,20 @@ const CardItem: React.FC = () => {
                         <img src={data?.image?.original} alt={data?.name} />
                     </div>
                     <div className="card__item-summary">
-                        {ReactHtmlParser(data?.summary)}
+                        <div className="card__item-summary-text">
+                            {ReactHtmlParser(data?.summary)}
+                        </div>
+                        <div className="card__item-summary-info">
+                            <div className="rating">
+                                Rating: {data?.rating?.average}
+                            </div>
+                            <div className="site">
+                                <a target="_blank" href={data?.officialSite}>Official Site</a>
+                            </div>
+                            <div className="imdb">
+                                <a target="_blank" href={imdbLink}>imdb</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

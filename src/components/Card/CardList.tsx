@@ -8,12 +8,12 @@ import Search from "../Search";
 import "./Card.scss";
 
 const CardList: React.FC = () => {
-    const { loading, error, data } = useTypedSelector(state => state.list);
-    const { fetchSeries } = useActions();
-
     useEffect(() => {
         fetchSeries("");
     }, []);
+
+    const { loading, error, data } = useTypedSelector(state => state.list);
+    const { fetchSeries } = useActions();
 
     const searchChanged = (term: string) => {
         fetchSeries(term);
